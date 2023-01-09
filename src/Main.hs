@@ -10,6 +10,9 @@ import Ema.Route.Generic.TH
 import Ema.Route.Lib.Extra.StaticRoute qualified as SR
 import Optics.Core (Prism', (%))
 import Options.Applicative
+import Org.Parser (defaultOrgOptions, parseOrgIO)
+import Org.Parser.Definitions (OrgDocument)
+import Shower qualified
 import Text.Blaze.Html.Renderer.Utf8 qualified as RU
 import Text.Blaze.Html5 ((!))
 import Text.Blaze.Html5 qualified as H
@@ -18,6 +21,7 @@ import Text.Blaze.Html5.Attributes qualified as A
 data Model = Model
   { modelBaseUrl :: Text
   , modelStatic :: SR.Model
+  , modelDoc :: OrgDocument
   }
   deriving stock (Eq, Show, Generic)
 
@@ -51,7 +55,9 @@ instance EmaSite Route where
   type SiteArg Route = CliArgs
   siteInput cliAct args = do
     staticRouteDyn <- siteInput @StaticRoute cliAct ()
-    pure $ Model (cliArgsBaseUrl args) <$> staticRouteDyn
+    let oneFile = "/Users/srid/org/one.org"
+    org <- parseOrgIO defaultOrgOptions oneFile
+    pure $ Model (cliArgsBaseUrl args) <$> staticRouteDyn <*> pure org
   siteOutput rp m = \case
     Route_Html r ->
       pure $ Ema.AssetGenerated Ema.Html $ renderHtmlRoute rp m r
@@ -86,6 +92,11 @@ renderBody rp model r = do
         "You are on the index page. Want to see "
         routeLink rp HtmlRoute_About "About"
         "?"
+        H.div ! A.class_ "bg-gray-500 text-gray-100 text-sm p-2" $
+          H.code ! A.class_ "overflow-auto" $
+            H.pre $
+              H.toHtml $
+                Shower.shower (modelDoc model)
       HtmlRoute_About -> do
         "You are on the about page."
     H.a ! A.href (staticRouteUrl rp model "logo.svg") $ do

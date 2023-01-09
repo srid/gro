@@ -45,6 +45,7 @@ executable ema-template
     , optparse-applicative
     , org-parser
     , relude                >=1.0
+    , shower
     , text
     , time
     , unionmount            >=0.2

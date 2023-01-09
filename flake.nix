@@ -55,6 +55,7 @@
             };
           overrides = self: super: with pkgs.haskell.lib; {
             slugify = dontCheck (unmarkBroken super.slugify);
+            shower = self.callHackage "shower" "0.2.0.3" { };
           };
           source-overrides = {
             inherit (inputs) multiwalk;
