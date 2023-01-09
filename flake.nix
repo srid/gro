@@ -109,8 +109,8 @@
           in
           {
             default = config.packages.main-ema-template;
-            site = buildEmaSiteWithTailwind { baseUrl = "/"; };
-            site-github = buildEmaSiteWithTailwind { baseUrl = "/ema-template/"; };
+            #site = buildEmaSiteWithTailwind { baseUrl = "/"; };
+            #site-github = buildEmaSiteWithTailwind { baseUrl = "/ema-template/"; };
           };
         devShells.default = config.mission-control.installToDevShell config.devShells.main;
       };
