@@ -66,6 +66,22 @@
         "type": "github"
       }
     },
+    "multiwalk": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1667717202,
+        "narHash": "sha256-OZZGPoTR6rm0WNban9Co1G30FSxAFU5Gk3mK/pY0mKs=",
+        "owner": "lucasvreis",
+        "repo": "multiwalk",
+        "rev": "0b7dcb62ef1795f251d52f0cf9d3a832e089f8b0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lucasvreis",
+        "repo": "multiwalk",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1671249438,
@@ -116,6 +132,22 @@
         "type": "github"
       }
     },
+    "org-mode-hs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668964929,
+        "narHash": "sha256-cN16f3V4COtEA9f1cqtfC0xgKmdJ9e8rCbsSzfdQMyg=",
+        "owner": "lucasvreis",
+        "repo": "org-mode-hs",
+        "rev": "82309b35001de5a98c49013e5822e3fcaaf8ccbc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lucasvreis",
+        "repo": "org-mode-hs",
+        "type": "github"
+      }
+    },
     "proc-flake": {
       "locked": {
         "lastModified": 1671388981,
@@ -137,7 +169,9 @@
         "flake-root": "flake-root",
         "haskell-flake": "haskell-flake",
         "mission-control": "mission-control",
+        "multiwalk": "multiwalk",
         "nixpkgs": "nixpkgs_2",
+        "org-mode-hs": "org-mode-hs",
         "proc-flake": "proc-flake"
       }
     }

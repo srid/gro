@@ -12,6 +12,11 @@
     flake-root.url = "github:srid/flake-root";
     proc-flake.url = "github:srid/proc-flake";
     mission-control.url = "github:Platonic-Systems/mission-control";
+    # Libs
+    org-mode-hs.url = "github:lucasvreis/org-mode-hs";
+    org-mode-hs.flake = false;
+    multiwalk.url = "github:lucasvreis/multiwalk";
+    multiwalk.flake = false;
   };
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -48,7 +53,13 @@
                 ormolu = fixCyclicReference hp.ormolu;
               });
             };
-          overrides = self: super: with pkgs.haskell.lib; { };
+          overrides = self: super: with pkgs.haskell.lib; {
+            slugify = dontCheck (unmarkBroken super.slugify);
+          };
+          source-overrides = {
+            inherit (inputs) multiwalk;
+            org-parser = inputs.org-mode-hs + /org-parser;
+          };
         };
         proc.groups.run.processes = {
           haskell.command = "ghcid";

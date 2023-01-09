@@ -43,6 +43,7 @@ executable ema-template
     , monad-logger
     , optics-core
     , optparse-applicative
+    , org-parser
     , relude                >=1.0
     , text
     , time
