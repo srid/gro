@@ -152,8 +152,8 @@ parseCliArgs =
       info
         (versionOption <*> p <**> helper)
         ( fullDesc
-            <> progDesc "ema-template: TODO"
-            <> header "ema-template"
+            <> progDesc "gro: TODO"
+            <> header "gro"
         )
       where
         versionOption = infoOption "0.1" (long "version" <> help "Show version")

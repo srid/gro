@@ -30,7 +30,7 @@
       perSystem = { self', config, inputs', pkgs, lib, ... }: {
         # "haskellProjects" comes from https://github.com/srid/haskell-flake
         haskellProjects.main = {
-          packages.ema-template.root = ./.;
+          packages.gro.root = ./.;
           buildTools = hp:
             let
               # Workaround for https://github.com/NixOS/nixpkgs/issues/140774
@@ -101,16 +101,16 @@
                 ''
                   mkdir -p $out
                   pushd ${self}
-                  ${lib.getExe config.packages.main-ema-template} \
+                  ${lib.getExe config.packages.main-gro} \
                     --base-url=${baseUrl} gen $out
                   ${lib.getExe pkgs.haskellPackages.tailwind} \
                     -o $out/tailwind.css 'src/**/*.hs'
                 '';
           in
           {
-            default = config.packages.main-ema-template;
+            default = config.packages.main-gro;
             #site = buildEmaSiteWithTailwind { baseUrl = "/"; };
-            #site-github = buildEmaSiteWithTailwind { baseUrl = "/ema-template/"; };
+            #site-github = buildEmaSiteWithTailwind { baseUrl = "/gro/"; };
           };
         devShells.default = config.mission-control.installToDevShell config.devShells.main;
       };
