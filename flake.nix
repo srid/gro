@@ -12,7 +12,7 @@
     flake-root.url = "github:srid/flake-root";
     proc-flake.url = "github:srid/proc-flake";
     mission-control.url = "github:Platonic-Systems/mission-control";
-    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.url = "github:srid/treefmt-nix/rm-toplevel";
     # Libs
     org-mode-hs.url = "github:lucasvreis/org-mode-hs";
     org-mode-hs.flake = false;
