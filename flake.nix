@@ -109,25 +109,7 @@
             category = "Primary";
           };
         };
-        packages =
-          let
-            buildEmaSiteWithTailwind = { baseUrl }:
-              pkgs.runCommand "site"
-                { }
-                ''
-                  mkdir -p $out
-                  pushd ${self}
-                  ${lib.getExe config.packages.main-gro} \
-                    --base-url=${baseUrl} gen $out
-                  ${lib.getExe pkgs.haskellPackages.tailwind} \
-                    -o $out/tailwind.css 'src/**/*.hs'
-                '';
-          in
-          {
-            default = config.packages.main-gro;
-            #site = buildEmaSiteWithTailwind { baseUrl = "/"; };
-            #site-github = buildEmaSiteWithTailwind { baseUrl = "/gro/"; };
-          };
+        packages.default = config.packages.main-gro;
         devShells.default = config.mission-control.installToDevShell config.devShells.main;
       };
 
