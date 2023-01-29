@@ -8,6 +8,7 @@ I want a way to process and visualize the contents of my single `.org` file.
   - https://github.com/lucasvreis/org-mode-hs
 - [ ] basic HTML rendering
 - [ ] basic queries
+  - Keep GTD (à la Things) in mind.
 
 ## ideas
 
