@@ -21,3 +21,9 @@ Thus, there is no dynamism on the web view, in line with [Ema](https://ema.srid.
 ### routes
 
 A single `.org` file is read for simplicity. Thus, each heading can be reached via their own route (if required). This is useful for auto-reloading previews ([inside xwidgets](https://twitter.com/sridca/status/1604490544402632705), notably) of the requested section.
+
+### folding
+
+a la https://github.com/srid/chronicle
+
+facilitate frequent journaling, but also enable "archiving" them all using summaries that are marked in "past calendar".
